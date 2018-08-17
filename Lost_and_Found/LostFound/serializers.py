@@ -17,6 +17,7 @@ class FoundSerializer(serializers.ModelSerializer):
 
 # Create Spam Serialiser
 
-class TitleSerializer(serializers.Serializer):
-    item_id = serializers.AutoField(primary_key=True)
+class SpamSerializer(serializers.Serializer):
+    instance_id = serializers.IntegerField(max_value=None, min_value=None)
     item_name = serializers.CharField(max_length=255)
+    item_desc = serializers.CharField(max_length=255)
