@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'LostFound',
     'rest_framework',
-    
+    'django_filters',    
 ]
 
 MIDDLEWARE = [
@@ -53,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Lost_and_Found.urls'
+
 
 TEMPLATES = [
     {
