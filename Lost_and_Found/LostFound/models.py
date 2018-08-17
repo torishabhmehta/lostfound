@@ -3,10 +3,18 @@ import importlib
 from django.db import models
 from .choices import *
 
+# Create instance info*********************************************************
+
+class Instance_info(models.Model):  
+    instance_id = models.AutoField(primary_key=True, editable=False)
+    instance_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
 # Create reported item info****************************************************
 
-class Item_info(models.Model):
-    item_id = models.AutoField(primary_key=True)
+class Item_info(models.Model):    
     item_name = models.CharField(max_length=255, blank=False)
     item_category = models.CharField(max_length=255, choices=Item_Category_Choices, blank=False)
     place = models.CharField(max_length=255)
@@ -21,7 +29,7 @@ class Item_info(models.Model):
 
 # Create Lost item model*******************************************************
  
-class Lost(Item_info):
+class Lost(Item_info, Instance_info):
 
     def __init__(self, *args, **kwargs):
         self._meta.get_field('item_status').choices = Lost_Status_Choices
@@ -35,7 +43,7 @@ class Lost(Item_info):
     
 # Create Found item model******************************************************
 
-class Found(Item_info):
+class Found(Item_info, Instance_info):
 
     def __init__(self, *args, **kwargs):
         self._meta.get_field('item_status').choices = Found_Status_Choices
