@@ -21,6 +21,5 @@ Lost_Status_Choices = (
 )
 Found_Status_Choices = (
     ('On', 'Owner not found'),
-    ('Ou', 'Owner pending conformation'),
     ('Of', 'Owner found'),
 )

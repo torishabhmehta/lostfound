@@ -21,9 +21,6 @@ class Item_info(models.Model):
     date = models.DateField(default=datetime.date.today)
     item_desc = models.TextField(blank=True)
     item_status = models.CharField(max_length=255, null=False)
-    reported_spam = models.BooleanField(default=False)
-    item_is_spam = models.BooleanField(default=False)
-
     class Meta:
         abstract = True
 
